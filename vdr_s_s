@@ -1,0 +1,40 @@
+#! /bin/bash
+
+# vdr recording rename from subtitle in info
+
+#set -x
+
+f=$1
+
+info=$f/info
+
+s=$(grep ^S $info)
+
+#del="."
+#if [[ "$t" == *\|* ]]
+#then
+#    del="|"
+#fi
+#del="|"
+#exit
+
+#s=$(echo $t | cut -d "$del" -f 1)
+s=${s:2}
+s=$(echo "$s"|tr ' ' '_')
+s=$(echo "$s"|tr '/' '~')
+if [ "$s" == "" ]
+then
+    s="_"
+fi
+
+echo $s
+
+#exit
+
+newdir=$s
+
+echo $f "->" $newdir
+
+mkdir -p $newdir
+
+mv $f $newdir
