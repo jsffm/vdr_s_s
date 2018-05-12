@@ -5,8 +5,19 @@
 #set -x
 
 f=$1
+f0=$(dirname $f)
+cd $f0
+
+if [ -e "$f/.timer" ]
+then
+    exit 8
+fi
 
 info=$f/info
+if [ ! -e $info ]
+then
+    exit 8
+fi
 
 s=$(grep ^S $info)
 
@@ -31,7 +42,8 @@ echo $s
 
 #exit
 
-newdir=$s
+newdir=$f0/$s
+#exit
 
 echo $f "->" $newdir
 
