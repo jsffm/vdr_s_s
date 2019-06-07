@@ -47,6 +47,13 @@ newdir=$f0/$s
 
 echo $f "->" $newdir
 
+t=$(find $f -type l)
+if [ "$t" != "" ]
+then
+    echo "links inside"
+    exit
+fi
+#exit
 mkdir -p $newdir
 
 mv $f $newdir
