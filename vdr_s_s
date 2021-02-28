@@ -2,6 +2,11 @@
 
 # vdr recording rename from subtitle in info
 
+# jsffm		jsffm@web.de
+
+# reccmds.conf
+# vdr_s_s : /usr/local/bin/vdr_s_s
+
 #set -x
 
 f=$1
