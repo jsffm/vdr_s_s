@@ -36,8 +36,10 @@ s=$(grep ^S $info)
 
 #s=$(echo $t | cut -d "$del" -f 1)
 s=${s:2}
-s=$(echo "$s"|tr ' ' '_')
-s=$(echo "$s"|tr '/' '~')
+#s=$(echo "$s"|tr ' ' '_')
+s=${s//' '/_}
+#s=$(echo "$s"|tr '/' '~')
+s=${s//'/'/~}
 if [ "$s" == "" ]
 then
     s="_"
